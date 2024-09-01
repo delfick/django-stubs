@@ -860,9 +860,7 @@
         from myapp.models import Concrete
         reveal_type(Concrete.objects.qs_meth())  # N: Revealed type is "builtins.int"
         reveal_type(Concrete.objects.manager_meth())  # N: Revealed type is "builtins.str"
-    mypy_config: |
-        [mypy.plugins.django-stubs]
-        django_settings_module = myapp
+    django_settings_module: myapp
     files:
         -   path: myapp/__init__.py
         -   path: myapp/models.py

@@ -1,9 +1,7 @@
 -   case: test_setting_circular_import
     main: |
         from myapp import lib
-    mypy_config: |
-        [mypy.plugins.django-stubs]
-        django_settings_module = myapp.settings
+    django_settings_module: myapp.settings
     files:
         -   path: myapp/__init__.py
         -   path: myapp/settings.py

@@ -7,12 +7,13 @@
         reveal_type(settings.ROOT_DIR)  # N: Revealed type is "builtins.str"
         reveal_type(settings.APPS_DIR)  # N: Revealed type is "pathlib.Path"
         reveal_type(settings.NUMBERS)  # N: Revealed type is "builtins.list[builtins.str]"
-        reveal_type(settings.DICT)  # N: Revealed type is "builtins.dict[Any, Any]"
+        reveal_type(settings.DICT)  # N: Revealed type is "typing.Mapping[builtins.str, builtins.object]"
     custom_settings: |
+        from collections.abc import Mapping
         from base import *
         SECRET_KEY = 112233
         NUMBERS = ['one', 'two']
-        DICT = {}  # type: ignore
+        DICT: Mapping[str, object] = {}
     files:
         -   path: base.py
             content: |

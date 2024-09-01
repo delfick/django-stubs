@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-stubs-runner-test-driver"
+dynamic = ["version"]
+license = { text = "MIT", files = ["../LICENSE.md"] }
+dependencies = [
+    "pytest-typing-runner==0.6.0",
+    "Jinja2",
+    "jsonschema",
+    "types-jsonschema"
+]
+
+[tool.hatch.version]
+path = "django_stubs_test_driver/version.py"
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "/django_stubs_test_driver",
+]
+
+[project.entry-points.pytest_typing_runner_strategies]
+z_change_defaults = "django_stubs_test_driver.strategies:change_default_strategies"

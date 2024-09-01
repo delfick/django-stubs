@@ -12,7 +12,7 @@
 - case: test_filter_on_abstract_user_pk_wrong_name
   main: |
     from django.contrib.auth.models import AbstractUser
-    AbstractUser.objects.get(pkey=1)  # ER: Cannot resolve keyword 'pkey' into field..*
+    AbstractUser.objects.get(pkey=1)  # E<regex>: Cannot resolve keyword 'pkey' into field..*
   installed_apps:
     - django.contrib.auth
 
